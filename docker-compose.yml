@@ -2,7 +2,8 @@ version: "3.8"
 
 services:
   app_inventory_management:
-    build: inventory_management
+    build: 
+      context: ./inventory_management
     mem_limit: 512m
     ports:
       - "8080:8080"
