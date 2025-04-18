@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   app_inventory_management:
     build: inventory_management
@@ -13,7 +15,7 @@ services:
       inventory_management:
           condition: service_healthy
   inventory_management:
-    image: mysql:9.1.0 
+    image: mysql:8.3 
     ports:
       - "3307:3306"
     environment:
