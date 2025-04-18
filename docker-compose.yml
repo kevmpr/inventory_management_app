@@ -1,0 +1,27 @@
+services:
+  app_inventory_management:
+    build: inventory_management
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://inventory_management:3306/inventory_db?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: 1234
+    restart: always
+    depends_on:
+      inventory_management:
+          condition: service_healthy
+  inventory_management:
+    image: mysql:9.1.0 
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: inventory_db
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
