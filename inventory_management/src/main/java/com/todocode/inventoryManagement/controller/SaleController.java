@@ -1,9 +1,7 @@
 package com.todocode.inventoryManagement.controller;
 
-import com.todocode.inventoryManagement.dto.ProductDTO;
 import com.todocode.inventoryManagement.dto.SaleDTO;
 import com.todocode.inventoryManagement.dto.SalesDetailsDTO;
-import com.todocode.inventoryManagement.model.Product;
 import com.todocode.inventoryManagement.model.Sale;
 import com.todocode.inventoryManagement.service.ISaleService;
 import org.springframework.beans.factory.annotation.Autowired;

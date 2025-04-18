@@ -1,6 +1,5 @@
 package com.todocode.inventoryManagement.service;
 
-import com.todocode.inventoryManagement.model.Customer;
 import com.todocode.inventoryManagement.model.Product;
 import com.todocode.inventoryManagement.model.Sale;
 import com.todocode.inventoryManagement.model.SalesDetails;
@@ -66,6 +65,11 @@ public class SaleService implements ISaleService {
                 totalPrice += salesDetails.getUnitPrice() * salesDetails.getQuantity();
 
                 stock += salesDetails.getQuantity();
+
+                if (product.getStock() < stock) {
+                    throw new RuntimeException("Insufficient stock for product: " + product.getName());
+                }
+
                 product.setStock(product.getStock() - stock);
             }
         }

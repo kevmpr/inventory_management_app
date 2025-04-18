@@ -1,12 +1,10 @@
 package com.todocode.inventoryManagement.service;
 
-import com.todocode.inventoryManagement.model.Product;
 import com.todocode.inventoryManagement.model.SalesDetails;
 import com.todocode.inventoryManagement.repository.ISalesDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

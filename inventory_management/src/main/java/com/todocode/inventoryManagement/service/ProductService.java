@@ -1,6 +1,5 @@
 package com.todocode.inventoryManagement.service;
 
-import com.todocode.inventoryManagement.model.Customer;
 import com.todocode.inventoryManagement.model.Product;
 import com.todocode.inventoryManagement.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,12 +47,28 @@ public class ProductService implements IProductService {
 
     @Override
     public void saveProduct(Product product) {
+        if (product.getPrice() < 0) {
+            throw new RuntimeException("Price cannot be negative");
+        }
+
+        if (product.getStock() < 0) {
+            throw new RuntimeException("Stock cannot be negative");
+        }
+
         product.setActive(true);
         productRepository.save(product);
     }
 
     @Override
     public void editProduct(Product product) {
+        if (product.getPrice() < 0) {
+            throw new RuntimeException("Price cannot be negative");
+        }
+
+        if (product.getStock() < 0) {
+            throw new RuntimeException("Stock cannot be negative");
+        }
+
         Product productTemp = this.findProduct(product.getProductId());
 
         Product productEdited = new Product();
