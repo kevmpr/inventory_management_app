@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DB_URL: jdbc:mysql://btqnhybqnhk0d4fot1fq-mysql.services.clever-cloud.com:3306/btqnhybqnhk0d4fot1fq?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      DB_URL: jdbc:mysql://btqnhybqnhk0d4fot1fq-mysql.services.clever-cloud.com:3306/btqnhybqnhk0d4fot1fq?useSSL=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
       DB_USERNAME: uh5h5wvhced55jne
       DB_PASSWORD: 60cOJ8ukUtNC9Fn73I4J
     restart: always
