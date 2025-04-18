@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   app_inventory_management:
     build: 
@@ -8,23 +6,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DB_URL: jdbc:mysql://inventory_management:3306/inventory_db?createDatabaseIfNotExist=true&serverTimezone=UTC
-      DB_USERNAME: root
-      DB_PASSWORD: 1234
+      DB_URL: jdbc:mysql://btqnhybqnhk0d4fot1fq-mysql.services.clever-cloud.com:3306/btqnhybqnhk0d4fot1fq?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      DB_USERNAME: uh5h5wvhced55jne
+      DB_PASSWORD: 60cOJ8ukUtNC9Fn73I4J
     restart: always
-    depends_on:
-      inventory_management:
-          condition: service_healthy
-  inventory_management:
-    image: mysql:8.3 
-    ports:
-      - "3307:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_PASSWORD: 1234
-      MYSQL_DATABASE: inventory_db
-    restart: always
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 10s
-      retries: 10
