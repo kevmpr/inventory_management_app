@@ -6,14 +6,12 @@ WORKDIR /inventory_management
 
 # Copia el archivo pom.xml y el directorio src para compilar el proyecto
 COPY pom.xml .
-COPY src /inventory_management/src
+COPY src ./src
 
 # Ejecuta Maven para compilar el proyecto y generar el .jar
 RUN mvn clean install -DskipTests
 
 FROM openjdk:17-jdk-slim
-
-ARG JAR_FILE=target/inventory_management-0.0.1-SNAPSHOT.jar
 
 COPY --from=build /inventory_management/target/inventory_management-0.0.1-SNAPSHOT.jar /app_inventory.jar
 
